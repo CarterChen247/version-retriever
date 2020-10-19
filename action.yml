@@ -1,5 +1,8 @@
 name: 'Version Retriever'
 description: 'retrieve version from branch name'
+branding:
+  color: white
+  icon: git-branch
 outputs:
   version:
     description: "version"
