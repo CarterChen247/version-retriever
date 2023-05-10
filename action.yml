@@ -19,7 +19,7 @@ runs:
         echo "branch_name  => $branch_name"
         echo "version_name => $version_name"
         if [[ $version_name =~ [0-9]+(\\.[0-9]+)* ]]; then
-          echo "::set-output name=result::$(echo $version_name)"
+          echo "result=$(echo $version_name)" >> $GITHUB_OUTPUT
         else
           echo "invalid version format"
           exit 1
