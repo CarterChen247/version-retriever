@@ -12,16 +12,15 @@ runs:
   steps: 
     - id: version-retriever
       run: |
-        ref_name=${GITHUB_REF}
-        branch_name=${GITHUB_REF#refs/heads/}
-        version_name=${GITHUB_REF##*/}
+        ref_name=${GITHUB_REF_NAME}
+        ref_type=%{GITHUB_REF_TYPE}
         echo "ref_name     => $ref_name"
-        echo "branch_name  => $branch_name"
-        echo "version_name => $version_name"
-        if [[ $version_name =~ [0-9]+(\\.[0-9]+)* ]]; then
-          echo "result=$(echo $version_name)" >> $GITHUB_OUTPUT
+        echo "ref_type     => $ref_type"
+        if [[ $ref_name =~ [0-9]+(\\.[0-9]+)* ]]; 
+        then
+          echo "result=$(echo $ref_name)" >> $GITHUB_OUTPUT
         else
-          echo "invalid version format"
+          echo "$ref_type $ref_name has invalid format"
           exit 1
         fi
       shell: bash
