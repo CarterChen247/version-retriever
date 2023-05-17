@@ -3,9 +3,9 @@ on: [push]
 jobs:
   retrieve_version_job:
     runs-on: ubuntu-latest
-    name: retrieve branch version
+    name: retrieve branch/tag version
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - id: version-retriever
       uses: CarterChen247/version-retriever@v1
     - name: echo retrieved version
