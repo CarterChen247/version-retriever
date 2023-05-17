@@ -13,7 +13,7 @@ runs:
     - id: version-retriever
       run: |
         ref_name=${GITHUB_REF_NAME}
-        ref_type=%{GITHUB_REF_TYPE}
+        ref_type=${GITHUB_REF_TYPE}
         echo "ref_name     => $ref_name"
         echo "ref_type     => $ref_type"
         if [[ $ref_name =~ [0-9]+(\\.[0-9]+)* ]]; 
